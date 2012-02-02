@@ -1,0 +1,17 @@
+// ref. http://dev.screw-axis.com/doc/chrome_extensions/tutorials/getting_started/
+{
+  "name": "OML Navigation Supporter",
+  "version": "1.1",
+  "description": "大阪市立図書館のサイトナビゲーションを支援",
+  "permissions": [
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*.oml.city.osaka.jp/*", "https://*.oml.city.osaka.jp/*"], // http://dev.screw-axis.com/doc/chrome_extensions/guide/content_script/match_patterns/
+      "js": ["jquery-1.6.2.js", "run.js"],
+      "run_at": "document_idle" // or document_start, document_end, document_idle
+    }
+  ],
+  "options_page": "options.html",
+  "background_page": "background.html"
+}
