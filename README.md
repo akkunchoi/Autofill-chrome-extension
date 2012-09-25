@@ -1,34 +1,27 @@
-OML Navigation Supporter
+Auto Input Form Chrome Extension 
 ================================
 
-[大阪市立図書館](http://www.oml.city.osaka.jp/index.html)の蔵書検索、予約貸出状況確認で、自動ログインを行うChrome拡張です。
+This chrome extension inputs text form to a value you like using [jQuery Selectors](http://api.jquery.com/category/selectors/).
 
 
-Install
+Usage
 ----------------
+Open "Options" of this extension, 
+And click "New Query", 
+Then three text field will appear.
 
-Chrome「拡張機能」から「デベロッパーモード」にチェック。
-「パッケージ化されていない拡張機能を読み込む」で当ディレクトリを選択
-オプションからログイン情報を入力する。
-
-大阪市立図書館のログイン画面ではフレームを外す必要がある。
-[Open Frame](https://chrome.google.com/webstore/detail/kdhjgkkaacdhdioocfbpmhjidbinfajj) などで、フレームを除外したページにアクセスする。
+- Url as regular expression
+- Query as jQuery Selectors
+- Value as string you want to input
 
 
 ChangeLog
 ----------------
-
-2011-09-12 v1.1 オプション設定に対応
-2011-09-03 v1.0 自動ログイン（ソース内にデータを格納）
-
+- 2012-09-26 v1.0 release
 
 
 Todo
 ----------------
-
-- フレーム対応
-- ナビゲーション悪いのでメニュー追加する？(ググった時にトップページではなく蔵書検索に行く)
-- 自動サブミットの切り替えオプション
-- 汎用的に作成できるか 
+- Find contents inside frames
 
 

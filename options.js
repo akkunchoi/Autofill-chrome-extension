@@ -1,31 +1,63 @@
-var autoSave = function(key, elem){
-  if (localStorage[key] == undefined){
-    localStorage[key] = '';
+jQuery(function($){
+  var page = $('#options-page'); 
+  var newQuery = page.find('.new');
+  var tpl = page.find('.template');
+  tpl.hide();
+  var id = 0;
+
+  function createQuery(id){
+    if ($('#row-' + id).length > 0){
+      return $('#row-' + id);
+    }
+    var c = tpl.clone();
+    c.removeClass('template');
+    tpl.parent().append(c);
+    c.show();
+    c.attr('id', 'row-' + id);
+    c.find('.url').attr('name', 'url-' + id);
+    c.find('.query').attr('name', 'query-' + id);
+    c.find('.value').attr('name', 'value-' + id);
+
+    c.find('.remove').click(function(){
+      c.remove();
+      var id = c.attr('id').replace(/row-/, '');
+      localStorage.removeItem('url-' + id);
+      localStorage.removeItem('query-' + id);
+      localStorage.removeItem('value-' + id);
+    });
+    return c;
   }
-  elem.value = localStorage[key];
-  console.log('restored ' + key + '=' + elem.value);
-  elem.addEventListener('keyup', function(){
-    localStorage[key] = elem.value;
-    console.log('saved ' + key + '=' + elem.value);
+  newQuery.click(function(){
+    createQuery(++id);
+    return false;
   });
-}
-window.onload = function(){
-  var list = [
-    'cardnum', 
-    'password',
-    'passkey_a',
-    'passkey_b',
-    'passkey_c',
-    'passkey_d',
-    'passkey_e',
-    'passkey_f',
-    'passkey_g',
-    'passkey_h',
-    'passkey_i',
-    'passkey_j'
-  ];
-  $.each(list, function(k, v){
-    var e = document.getElementById(v);
-    autoSave(v, e);
+  
+  page.find('input[type=checkbox]').each(function(){
+    var key = $(this).attr('name');
+    localStorage[key] = localStorage[key] || '';
+    if (localStorage[key]){
+      $(this).attr('checked', 'checked');
+    }
+    $(this).change(function(){
+      if ($(this).attr('checked')){
+        localStorage[key] = 'checked';
+      }else{
+        localStorage[key] = '';
+      }
+    });
   });
-}
+
+  page.find('input[type=text]').live('keyup', function(){
+    var key = $(this).attr('name');
+    localStorage[key] = $(this).val();
+  });
+
+  for (var k in localStorage){
+    if (k.match(/^(query|url|value)-(\d+)/)){
+      var type = RegExp.$1;
+      var id = RegExp.$2;
+      var c = createQuery(id);
+      c.find('.' + type).val(localStorage[k]);
+    }
+  };
+});

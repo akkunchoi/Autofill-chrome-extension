@@ -2,41 +2,45 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>OML Navigation Supporter</title>
-    <script src="./jquery-1.6.2.js" type="text/javascript"></script>
+    <title>User query options</title>
+    <script src="./jquery-1.8.2.min.js" type="text/javascript"></script>
     <script src="./options.js" type="text/javascript"></script>
   </head>
   <style type="text/css">
     body{
       margin: auto;
-      width: 60%;
+      width: 800px 
+    }
+    .url{
+      width: 300px;
+    }
+    .query{
+      width: 200px;
+    }
+    .value{
+      width: 100px;
     }
   </style>
-<body>
-  <h1>ログイン設定</h1>
+<body id="options-page">
+  <h1>Options</h1>
+  <label>Debug: <input type="checkbox" name="debug" value="1" /></label>
   <table>
-    <tr>
-      <th>カード番号</th>
-      <td><input type="text" id="cardnum" /></td>
-    </tr>
-    <tr>
-      <th>暗証番号</th>
-      <td><input type="text" id="password" /></td>
-    </tr>
-    <tr>
-      <th>番号表</th>
-      <td>
-        A<input type="text" id="passkey_a" size="2" />
-        B<input type="text" id="passkey_b" size="2" />
-        C<input type="text" id="passkey_c" size="2" />
-        D<input type="text" id="passkey_d" size="2"/>
-        E<input type="text" id="passkey_e" size="2"/>
-        F<input type="text" id="passkey_f" size="2"/>
-        G<input type="text" id="passkey_g" size="2"/>
-        H<input type="text" id="passkey_h" size="2"/>
-        I<input type="text" id="passkey_i" size="2"/>
-        J<input type="text" id="passkey_j" size="2"/>
-      </td>
-    </tr>
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Query</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="template">
+        <td><input type="text" name="" value="" class="url" /></td>
+        <td><input type="text" name="" value="" class="query" /></td>
+        <td><input type="text" name="" value="" class="value" /></td>
+        <td><a href="#" class="remove">×</a></td>
+      </tr>
+    </tbody>
   </table>
+  <a href="#" class="new">New Query</a>
+
 </body>

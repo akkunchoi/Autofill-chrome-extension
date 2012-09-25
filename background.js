@@ -6,6 +6,7 @@ var core = {
    * @return Object
    */
   "getOptions": function(){
+    console.log('getOptions', localStorage);
     return localStorage;
   },
   // 通信したい
@@ -19,6 +20,7 @@ window.onload = function(){
    * }
    **/
   chrome.extension.onRequest.addListener(function(request, sender, sendResponse){
+      console.log('onRequest');
     var ret = (core[request.action] || function(){}).apply(this, request.args);
     sendResponse(ret);
   });
