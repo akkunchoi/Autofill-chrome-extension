@@ -20,7 +20,6 @@ window.onload = function(){
    * }
    **/
   chrome.extension.onRequest.addListener(function(request, sender, sendResponse){
-      console.log('onRequest');
     var ret = (core[request.action] || function(){}).apply(this, request.args);
     sendResponse(ret);
   });
