@@ -66,6 +66,6 @@ jQuery(function($){
     c.find('.url').val('http://akkunchoi.github.com/Autofill-chrome-extension/.*');
     c.find('.query').val('input[name=example]');
     c.find('.value').val('Hello world!');
-    c.trigger('keyup');
+    c.find('input').trigger('keyup');
   }
 });
