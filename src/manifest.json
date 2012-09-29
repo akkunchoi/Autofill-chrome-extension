@@ -1,10 +1,10 @@
 // ref. http://dev.screw-axis.com/doc/chrome_extensions/tutorials/getting_started/
 {
-  "name": "chrome user query",
+  "name": "Autofill chrome extension",
   "version": "1.0",
   "manifest_version": 2,
 
-  "description": "Run user query",
+  "description": "This chrome extension fills out forms automatically.",
   "icons": {},
   "content_scripts": [
     {
