@@ -60,4 +60,12 @@ jQuery(function($){
       c.find('.' + type).val(localStorage[k]);
     }
   };
+  
+  if (id == 0){
+    var c = createQuery(++id);
+    c.find('.url').val('http://akkunchoi.github.com/Autofill-chrome-extension/.*');
+    c.find('.query').val('input[name=example]');
+    c.find('.value').val('Hello world!');
+    c.trigger('keyup');
+  }
 });
