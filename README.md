@@ -9,6 +9,8 @@ But this function doesn't work on some website.
 You set a query and a value, then this extension fills out a value by the query
 
 
+<http://akkunchoi.github.com/Autofill-chrome-extension>
+
 
 Usage
 ----------------
