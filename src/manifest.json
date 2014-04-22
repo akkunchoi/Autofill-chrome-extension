@@ -13,7 +13,7 @@
         "https://*/*"
       ],
       "js": ["jquery-1.8.2.min.js", "run.js"],
-      "run_at": "document_idle" // or document_start, document_end, document_idle
+      "run_at": "document_end" // or document_start, document_end, document_idle
     }
   ],
   "options_page": "options.html",
