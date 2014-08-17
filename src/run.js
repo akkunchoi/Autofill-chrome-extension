@@ -12,12 +12,11 @@ chrome.extension.sendRequest({
       queries[id][type] = response[k];
     }
   };
-  for (id in queries){
-    var q = queries[id]
-    if (document.location.href.match(new RegExp(q['url']))){
-      $(q['query']).val(q['value']);
-    }
-  }
+  setTimeout(function() {
+    for (id in queries){
+      var q = queries[id]
+      if (document.location.href.match(new RegExp(q['url']))){
+        $(q['query']).val(q['value']);
+      }
+  }}, 500);
 });
-
-
