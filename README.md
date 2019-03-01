@@ -1,3 +1,5 @@
+** this project is not maintained anymore. Please use forked project or another.**
+
 Autofill forms Chrome extension 
 ================================
 
